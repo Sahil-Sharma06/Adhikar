@@ -7,6 +7,8 @@
 
 - Add Tailwind
 - Add Routing
-- - Login (Sahil)
+- Login (Sahil)
 - Signup (Sahil)
-- - Analyzer(Sahil)
+- Analyzer(Sahil)
+- Chatbox
+- Settings
