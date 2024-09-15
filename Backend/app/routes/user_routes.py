@@ -3,8 +3,17 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.crud import get_users, create_user, authenticate_user
 from app.auth import create_access_token
 from app.database import get_db
+from pydantic import BaseModel
 
 router = APIRouter()
+
+
+class UserCreateRequest(BaseModel):
+    name: str
+    email: str
+    password: str
+    language_preference: str = "English"
+
 
 @router.get("/users/")
 async def read_users(db: AsyncSession = Depends(get_db)):
@@ -12,9 +21,15 @@ async def read_users(db: AsyncSession = Depends(get_db)):
     return users
 
 @router.post("/signup/")
-async def create_new_user(name: str, email: str, password: str, language_preference: str = "English", db: AsyncSession = Depends(get_db)):
+async def create_new_user(user: UserCreateRequest, db: AsyncSession = Depends(get_db)):
+    user_data = user.dict()
+    name = user_data['name']
+    email = user_data['email']
+    password = user_data['password']
+    language_preference = user_data['language_preference']
+    
     user = await create_user(db, name, email, password, language_preference)
-    return {"user":user}
+    return {"user": user}
 
 @router.post("/login/")
 async def login(email: str, password: str, db: AsyncSession = Depends(get_db)):
