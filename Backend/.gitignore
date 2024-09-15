@@ -3,12 +3,5 @@ __pycache__/
 *.py[cod]
 *.so
 
-# Virtual environment
-env/
-venv/
 .env
-# MacOS specific
-.DS_Store
 
-# Logs
-*.log
