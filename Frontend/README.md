@@ -1,7 +1,9 @@
 ## Task
 
-- Add tailwind doing sus
-- Add Routing doing sus
+- HomePage
+- 
 
 ## Completed
 
+- Add Tailwind
+- Add Routing
