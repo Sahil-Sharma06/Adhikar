@@ -31,8 +31,17 @@ async def create_new_user(user: UserCreateRequest, db: AsyncSession = Depends(ge
     user = await create_user(db, name, email, password, language_preference)
     return {"user": user}
 
+class LoginRequest(BaseModel):
+    email: EmailStr
+    password: str
+
 @router.post("/login/")
-async def login(email: str, password: str, db: AsyncSession = Depends(get_db)):
+async def login(login_data: LoginRequest, db: AsyncSession = Depends(get_db)):
+    # Extract the email and password from the Pydantic model
+    email = login_data.email
+    password = login_data.password
+    
+    # Authenticate user
     user = await authenticate_user(db, email, password)
     if not user:
         raise HTTPException(status_code=400, detail="Invalid credentials")
@@ -40,4 +49,4 @@ async def login(email: str, password: str, db: AsyncSession = Depends(get_db)):
     # Create JWT token upon successful authentication
     access_token = create_access_token(data={"sub": user.email})
     
-    return {"access_token": access_token, "token_type": "bearer", "user":user}
+    return {"access_token": access_token, "token_type": "bearer", "user": user}
