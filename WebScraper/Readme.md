@@ -3,7 +3,7 @@
 - Add all Script with info Doing sus
 
 
-# PDF to Context, Question, Answer framed using Gemini API
+## PDF to Context, Question, Answer framed using Gemini API
 
 This script takes a PDF file, processes its content into smaller chunks, and generates question-answer pairs using the Gemini API. In addition to generating QnA, it also creates relevant contexts for each answer and rewrites the answers to be clearer and more concise. The results are saved into a CSV file, making it ideal for generating training data for machine learning models. 
 
