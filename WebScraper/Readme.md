@@ -18,3 +18,4 @@ The script processes the PDF content into smaller chunks and generates the follo
 | **Context**           | A relevant context for the generated answer, designed to help train a model.                  |
 | **Rewritten Answer**  | A refined and clearer version of the generated answer, rewritten by the Gemini API.           |
 
+
