@@ -8,6 +8,10 @@ export default {
       colors: {
         'custom-dark-blue': '#11163B',
         'custom-pink': '#F23E79',
+        'custom-black': '#0f0f0f',
+        'custom-signup-border': '#1C1C1C',
+        'custom-button': '#F7F7F7',
+        'custom-green': '#064942',
       },
     },
   },
