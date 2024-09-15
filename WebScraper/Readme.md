@@ -20,3 +20,48 @@ The script processes the PDF content into smaller chunks and generates the follo
 | **Rewritten Answer**  | A refined and clearer version of the generated answer, rewritten by the Gemini API.           |
 
 
+
+# Indian Commercial Court Judgment Data Scraper
+
+This Python script scrapes judgment data from Indian Commercial Court cases and uses the Gemini API to extract important fields like titles, dates, decisions, and more. The extracted data is then saved into a CSV file, making it suitable for further legal research or training machine learning models.
+
+## Output Format
+
+The script processes the scraped judgment data and saves the extracted information into a CSV file with the following columns:
+
+| Column Name        | Description                                                                          |
+|--------------------|--------------------------------------------------------------------------------------|
+| **url**            | The URL of the scraped judgment.                                                     |
+| **title**          | The title or heading of the judgment extracted from the judgment text.                |
+| **body_text**      | The main body or content of the judgment.                                             |
+| **date**           | The date of the judgment, indicating when the case was decided.                      |
+| **parties_involved** | The names of the parties involved in the case (e.g., Plaintiff vs. Defendant).      |
+| **decision**       | The decision or ruling made by the court in the case.                                 |
+| **legal_citations**| References to other legal cases, statutes, or sections cited within the judgment.    |
+| **legal_sections** | Legal sections or laws that are applicable to the case, as mentioned in the judgment. |
+| **category**       | The category or type of the case (e.g., Civil, Commercial, Criminal).                 |
+| **full_content**   | The entire content of the judgment as scraped from the website before processing.     |
+
+### Example CSV Output
+
+Below is an example of how the output might look in the CSV file:
+
+| url                                      | title                        | body_text                  | date       | parties_involved    | decision         | legal_citations                 | legal_sections        | category    | full_content            |
+|------------------------------------------|------------------------------|----------------------------|------------|---------------------|------------------|----------------------------------|-----------------------|-------------|-------------------------|
+| https://example.com/judgment1            | ABC Ltd vs XYZ Corp           | Full judgment text...       | 2024-01-10 | ABC Ltd, XYZ Corp   | Judgment in favor | Citation 1, Citation 2          | Section 34, Section 52 | Commercial  | Full scraped content...  |
+| https://example.com/judgment2            | John Doe vs State of India    | Full judgment text...       | 2024-02-15 | John Doe, State     | Judgment dismissed| Citation 3, Citation 4          | Section 302            | Criminal    | Full scraped content...  |
+
+### Description of Columns
+
+- **url**: The URL from which the judgment was scraped. This helps identify the source of the information.
+- **title**: The title of the case, typically showing the names of the parties involved (e.g., Plaintiff vs. Defendant).
+- **body_text**: The main text of the judgment that describes the proceedings, arguments, and reasoning of the court.
+- **date**: The date on which the judgment was delivered.
+- **parties_involved**: The names of the parties involved in the case, such as plaintiffs, defendants, or appellants.
+- **decision**: The final decision or ruling of the court (e.g., in favor of, dismissed, upheld).
+- **legal_citations**: Any legal references or citations to other cases, laws, or legal texts mentioned in the judgment.
+- **legal_sections**: The specific sections of law that were applied or discussed in the case.
+- **category**: The type or category of the case, such as Commercial, Criminal, Civil, etc.
+- **full_content**: The entire judgment text as it was scraped from the website, prior to extracting specific fields.
+
+Each row in the CSV file corresponds to one judgment that has been processed by the script, providing a structured and searchable dataset of legal information.
