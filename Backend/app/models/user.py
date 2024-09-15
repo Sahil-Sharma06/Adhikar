@@ -2,7 +2,7 @@ from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 from bson import ObjectId
 
-# Helper to convert MongoDB's ObjectId into a str
+# Helper to convert MongoDB's ObjectId into a str for Pydantic v1
 class PyObjectId(ObjectId):
     @classmethod
     def __get_validators__(cls):
