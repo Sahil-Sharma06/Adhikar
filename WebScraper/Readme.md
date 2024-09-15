@@ -21,11 +21,11 @@ The script processes the PDF content into smaller chunks and generates the follo
 
 
 
-# Indian Commercial Court Judgment Data Scraper
+## Indian Commercial Court Judgment Data Scraper From CSV URL
 
 This Python script scrapes judgment data from Indian Commercial Court cases and uses the Gemini API to extract important fields like titles, dates, decisions, and more. The extracted data is then saved into a CSV file, making it suitable for further legal research or training machine learning models.
 
-## Output Format
+### Output Format
 
 The script processes the scraped judgment data and saves the extracted information into a CSV file with the following columns:
 
@@ -42,7 +42,7 @@ The script processes the scraped judgment data and saves the extracted informati
 | **category**       | The category or type of the case (e.g., Civil, Commercial, Criminal).                 |
 | **full_content**   | The entire content of the judgment as scraped from the website before processing.     |
 
-### Example CSV Output
+#### Example CSV Output
 
 Below is an example of how the output might look in the CSV file:
 
