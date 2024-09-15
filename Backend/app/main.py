@@ -1,0 +1,23 @@
+from fastapi import FastAPI, Depends
+from sqlalchemy.ext.asyncio import AsyncSession
+from .database import engine, get_db
+from .crud import get_users, create_user
+from .models import Base
+
+app = FastAPI()
+
+# Create database tables automatically
+@app.on_event("startup")
+async def startup():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+@app.get("/users/")
+async def read_users(db: AsyncSession = Depends(get_db)):
+    users = await get_users(db)
+    return users
+
+@app.post("/users/")
+async def create_new_user(name: str, email: str, password: str, language_preference: str = "English", db: AsyncSession = Depends(get_db)):
+    user = await create_user(db, name, email, password, language_preference)
+    return user
