@@ -4,7 +4,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'custom-dark-blue': '#11163B',
+        'custom-pink': '#F23E79',
+      },
+    },
   },
   plugins: [],
 }
