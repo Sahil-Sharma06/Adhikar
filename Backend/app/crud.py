@@ -1,7 +1,8 @@
 from sqlalchemy.future import select
 from fastapi import HTTPException
 from .models import User
-from .utils import verify_password, create_access_token hash_password
+from .utils import verify_password, create_access_token
+from .utils import hash_password
 
 async def get_users(db):
     result = await db.execute(select(User))

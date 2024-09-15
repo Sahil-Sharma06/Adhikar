@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Depends
+from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from .database import engine, get_db
-from .crud import get_users, create_user
+from .crud import get_users, create_user, authenticate_user, create_access_token
 from .models import Base
 
 app = FastAPI()
@@ -17,7 +18,7 @@ async def read_users(db: AsyncSession = Depends(get_db)):
     users = await get_users(db)
     return users
 
-@app.post("/users/")
+@app.post("/signup/")
 async def create_new_user(name: str, email: str, password: str, language_preference: str = "English", db: AsyncSession = Depends(get_db)):
     user = await create_user(db, name, email, password, language_preference)
     return user
