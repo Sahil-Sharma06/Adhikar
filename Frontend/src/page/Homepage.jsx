@@ -1,56 +1,82 @@
 import React from 'react'
-
 const Homepage = () => {
   return (
     <>
 <div class="bg-white pb-6 sm:pb-8 lg:pb-12">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <header class="mb-4 flex items-center justify-between py-4 md:py-8">
+  <div class=" max-w-screen-3xl bg-black">
+    <header class="mb-4 flex items-center justify-between py-4 md:py-8 bg-black">
      
-      <a href="/" class="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl" aria-label="logo">
-        <svg width="95" height="94" viewBox="0 0 95 94" class="h-auto w-6 text-indigo-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M96 0V47L48 94H0V47L48 0H96Z" />
-        </svg>
-
-        Flowrift
+      <a href="/" class="inline-flex items-center gap-2.5 text-2xl font-bold text-white md:text-3xl font-montserrat" aria-label="logo">
+      <img class="w-8" src="./public/piller.png" alt="logo" />
+       Adhikar
       </a>
      
       <nav class="hidden gap-12 lg:flex">
-        <a href="#" class="text-lg font-semibold text-indigo-500">Home</a>
-        <a href="#" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">Features</a>
-        <a href="#" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">Pricing</a>
-        <a href="#" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">About</a>
+        <a href="#" class="text-lg font-semibold text-green-400">Home</a>
+        <a href="#" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-green-400 active:text-green-300">Features</a>
+        {/* <a href="#" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-green-400 active:text-green-300">Pricing</a> */}
+        <a href="#" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-green-400 active:text-green-300">About</a>
       </nav>
-    
-      <a href="#" class="hidden rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block">Contact Sales</a>
 
-      <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 ring-indigo-300 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:hidden">
+      <a href="#" class="hidden rounded-lg bg-black px-8 py-3 text-center text-sm font-semibold text-green-300 outline-none ring-indigo-300 transition duration-100 hover:outline-green-200 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block">Get Started</a>
+
+      <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-black px-2.5 py-2 text-sm font-semibold text-green-200 ring-indigo-300  focus-visible:ring active:text-gray-700 md:text-base lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
         </svg>
-
         Menu
       </button>
      
     </header>
-
-    <section class="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
-    
-      <img src="https://images.unsplash.com/photo-1618004652321-13a63e576b80?auto=format&q=75&fit=crop&w=1500" loading="lazy" alt="Photo by Fakurian Design" class="absolute inset-0 h-full w-full object-cover object-center" />
-    
-      <div class="absolute inset-0 bg-indigo-500 mix-blend-multiply"></div>
-    
-      <div class="relative flex flex-col items-center p-4 sm:max-w-xl">
-        <p class="mb-4 text-center text-lg text-indigo-200 sm:text-xl md:mb-8">Very proud to introduce</p>
-        <h1 class="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">Revolutionary way to build the web</h1>
-
-        <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-          <a href="#" class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Start now</a>
-
-          <a href="#" class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Take tour</a>
-        </div>
-      </div>
+    <section class="ii">
+      <div class="x">
+    <h1 class=" z-1 text-white text-center justify-center  text-6xl font-bold uppercase mt-14 md:mb-2 md:text-[7.5rem] md:font-bold md:leading-[8rem]">satyamev jayate</h1> 
+        <div class=" text-base font-medium md:mb-14 md:text-lg" data-svelte-h="svelte-15lvsbz">
+          <p class=" x1 text-white text-l w-full">AI-Driven Research Engine delivers tailored legal insights, predictive analytics<br/> and multilingual support,
+             streamlining judicial processes with fast, reliable, and transparent <br/>results for commercial dispute resolution.</p>
+          </div>
+          <div class="mb-2 flex items-center justify-center gap-4 md:mb-16">
+            <div>
+              <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
+              href="https://arena.colosseum.org/signup">Sign Up</a>
+              </div> 
+              <div>
+                <a class=" bg-white rounded-[4px] font-nb-architekt uppercase bg-gray-1 text-gray-10 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2 border focus-within:outline-white hover:contrast-75 focus-within:hover:contrast-75 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
+                href="https://arena.colosseum.org/signin">Sign In</a>
+                </div>
+                </div>
+          </div>
+          <div class="par x">
+            <img  src="./src/assets/par.png"alt="court img"/>
+          </div>
     </section>
+    <div class=" xx d">
+
+    </div>
+    <div class=" xx d">
+
+    </div>
+     <section class=" w-full h-screen relative ">
+     <div class="s">
+      <img class="mx-auto items-center flex justify-center" src="./src/assets/g.png" alt=""/> 
+    </div>
+     <div class="container">
+        <div class="header2 text-white ">
+            <h2 class="mt-20 mx-10">Colosseum powers Solana hackathons</h2>
+        
+        <div class="stats">
+            <ul><li><span class="number text-white">70,000+</span>builders</li>
+                <li><span class="number text-white">5,000+</span>products launched</li>
+                <li><span class="number text-white">$650M</span>raised by winners</li>
+            </ul>
+        </div>
+   </div>
+    </div>
+     </section>
+     <div class=" xx d">
+
+    </div>
+
   </div>
 </div>
 <div class="bg-white py-6 sm:py-8 lg:py-12">
@@ -362,46 +388,7 @@ const Homepage = () => {
 </div>
 
 
-
-<div class="bg-white py-6 sm:py-8 lg:py-12">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <div class="flex flex-col overflow-hidden rounded-lg bg-gray-200 sm:flex-row md:h-80">
-     
-      <div class="order-first h-48 w-full bg-gray-300 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
-        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&q=75&fit=crop&w=1000" loading="lazy" alt="Photo by Andras Vas" class="h-full w-full object-cover object-center" />
-      </div>
-     
-      <div class="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
-        <h2 class="mb-4 text-xl font-bold text-gray-800 md:text-2xl lg:text-4xl">Help center</h2>
-
-        <p class="mb-8 max-w-md text-gray-600">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text.</p>
-
-        <div class="mt-auto">
-          <a href="#" class="inline-block rounded-lg bg-white px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:text-base">Contact support</a>
-        </div>
-      </div>
-     
-    </div>
-  </div>
-</div>
-
 <footer class="bg-white">
-  <div class="bg-indigo-500 py-6">
-    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-      <div class="flex flex-col items-center justify-between gap-2 md:flex-row">
-        <div class="mb-3 text-center md:mb-0 md:text-left">
-          <span class="font-bold uppercase tracking-widest text-gray-100">Newsletter</span>
-          <p class="text-indigo-200">Subscribe to our newsletter</p>
-        </div>
-
-        <form class="flex w-full gap-2 md:max-w-md">
-          <input placeholder="Email" class="w-full flex-1 rounded border border-white bg-indigo-400 px-3 py-2 text-white placeholder-indigo-100 outline-none ring-indigo-300 transition duration-100 focus:ring" />
-
-          <button class="inline-block rounded bg-white px-8 py-2 text-center text-sm font-semibold text-indigo-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:text-indigo-600 md:text-base">Send</button>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <div class="pt-12 lg:pt-16">
     <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
