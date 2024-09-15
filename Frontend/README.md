@@ -1,11 +1,14 @@
 ## Task
 
 - HomePage
-- Analyzer
+
 
 ## Completed
 
 - Add Tailwind
 - Add Routing
-- - Login (Sahil)
+- Login (Sahil)
 - Signup (Sahil)
+- Analyzer(Sahil)
+- Chatbox
+- Settings

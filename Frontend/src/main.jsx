@@ -11,6 +11,9 @@ import {
 import Homepage from './page/Homepage.jsx';
 import Login from './Components/Login.jsx';
 import Signup from './Components/Signup.jsx';
+import Analyzer from './Components/Analyzer.jsx';
+import Chatbox from './Components/Chatbox.jsx';
+import Settings from './Components/Settings.jsx';
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +21,9 @@ const router= createBrowserRouter(
       <Route path='' element={<Homepage/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Signup/>}/>
+      <Route path='/analyze' element={<Analyzer/>}/>
+      <Route path='/chat' element={<Chatbox/>}/>
+      <Route path='/setting' element={<Settings/>}/>
     </Route>
   )
 )
