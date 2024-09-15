@@ -14,7 +14,7 @@ async def read_users(db: AsyncSession = Depends(get_db)):
 @router.post("/signup/")
 async def create_new_user(name: str, email: str, password: str, language_preference: str = "English", db: AsyncSession = Depends(get_db)):
     user = await create_user(db, name, email, password, language_preference)
-    return user
+    return {"user":user}
 
 @router.post("/login/")
 async def login(email: str, password: str, db: AsyncSession = Depends(get_db)):
@@ -25,4 +25,4 @@ async def login(email: str, password: str, db: AsyncSession = Depends(get_db)):
     # Create JWT token upon successful authentication
     access_token = create_access_token(data={"sub": user.email})
     
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"access_token": access_token, "token_type": "bearer", "user":user}
