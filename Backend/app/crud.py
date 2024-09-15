@@ -32,3 +32,28 @@ async def authenticate_user(db, email: str, password: str):
         return None  # User not found or incorrect password
 
     return user
+
+async def update_user_details(db, email: str, new_name: str = None, new_password: str = None, new_language: str = None):
+    result = await db.execute(select(User).where(User.email == email))
+    user = result.scalar_one_or_none()
+    
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    if new_name:
+        user.name = new_name
+
+    if new_password:
+        if not verify_password(new_password, user.password):
+            user.password = hash_password(new_password)
+        else:
+            raise HTTPException(status_code=400, detail="Current password is incorrect")
+
+    if new_language:
+        user.language_preference = new_language
+
+    db.add(user)
+    await db.commit()
+    await db.refresh(user)
+    
+    return user
