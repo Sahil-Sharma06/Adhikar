@@ -52,8 +52,15 @@ body {
   height: 70vh;
   margin-bottom: 20px;
   margin: auto;
-  opacity: 0.2;
+  opacity: 0.3;
 }
+.dd img{
+  opacity: 0.35;
+  height: 55vh;
+  margin-top: 10%;
+}
+
+
 .par{
   margin-top: -30px;
 }
@@ -136,4 +143,9 @@ body {
 header{
   padding: 20px;
 }
-
+.co{
+  background-color: #0f0f0f;
+}
+.r{
+  max-width: 95rem
+}

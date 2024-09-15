@@ -2,7 +2,7 @@ import React from 'react'
 const Homepage = () => {
   return (
     <>
-<div class="bg-white pb-6 sm:pb-8 lg:pb-12">
+<div class="bg-black pb-6 sm:pb-8 lg:pb-12">
   <div class=" max-w-screen-3xl bg-black">
     <header class="mb-4 flex items-center justify-between py-4 md:py-8 bg-black">
      
@@ -79,6 +79,31 @@ const Homepage = () => {
 
   </div>
 </div>
+<section class="bg-black x">
+  <div class="mx-auto mb-32 grid max-w-7xl items-center  font-tasa-orbiter-display  r text-lg md:mb-64 md:grid-cols-2 md:bg-grid-1 md:bg-[size:66%] md:bg-[position:25%_150%] md:bg-no-repeat">
+    <div class="relative z-10 mt-12 bg-illustration-3 bg-contain bg-no-repeat pt-[19.5rem] md:mt-0 md:bg-none md:bg-center md:pt-0">
+      <div class="flex flex-col gap-10 bg-grid-1 bg-[size:40rem] bg-[position:50%_0rem] bg-no-repeat md:bg-none">
+        <h2 class="text-5xl font-bold uppercase leading-[3.5rem] text-white md:text-8xl md:leading-[6.5rem]" data-svelte-h="svelte-fdwwm8">Join Colosseum's Community</h2> 
+        <p class="max-w-xl text-base font-medium text-white md:text-lg" data-svelte-h="svelte-t03cuu">Colosseum runs 2-3 online hackathons per year, each followed by an accelerator cohort.
+          Sign up for a Colosseum account, create a builder profile, search to find cofounders, and
+          share product ideas in the forum before the next hackathon.</p> 
+          <div class="flex items-center gap-7">
+          <div>
+              <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
+              href="https://arena.colosseum.org/signup">Sign Up</a>
+              </div> 
+              <div>
+                <a class=" bg-white rounded-[4px] font-nb-architekt uppercase bg-gray-1 text-gray-10 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2 border focus-within:outline-white hover:contrast-75 focus-within:hover:contrast-75 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
+                href="https://arena.colosseum.org/signin">Sign In</a>
+                </div>
+                </div>
+                </div>
+                </div> 
+                <div class="hidden md:block dd" data-svelte-h="svelte-woww57">
+                  <img class="mx-auto" src="./src/assets/aunty.png" alt=""/>
+                  </div>
+                  </div>
+                  </section>
 <div class="bg-white py-6 sm:py-8 lg:py-12">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
     <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Gallery</h2>
