@@ -16,7 +16,11 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
+<<<<<<< HEAD
     "tailwind-merge": "^2.5.2"
+=======
+    "zustand": "^5.0.0-rc.2"
+>>>>>>> 5f09d493cca6fff55d248b3e633e6dfba26ac6f4
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

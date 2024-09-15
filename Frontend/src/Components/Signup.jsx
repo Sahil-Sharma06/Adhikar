@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import { imp } from '../../data';
-import leftImage from '../assets/ascii-column-left.png'; // Adjust the path as necessary
-import rightImage from '../assets/ascii-column-right.png'; // Adjust the path as necessary
+import { imp } from '../../data/data.js';
+import leftImage from '../assets/ascii-column-left.png';
+import rightImage from '../assets/ascii-column-right.png';
 
 const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [language, setLanguage] = useState('English'); // Default language
+  const [language_preference, setLanguage] = useState('English');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
@@ -21,16 +21,24 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post(imp[0].domain + '/api/register', {
+      const response = await axios.post(imp[0].domain + '/auth/signup', {
         name,
         email,
         password,
-        language, // Send selected language to the backend
+        language_preference,
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
       console.log('Signup successful:', response.data);
     } catch (err) {
-      setError('Signup failed. Please try again.');
-      console.error('Signup error:', err);
+      if (err.response && err.response.data) {
+        setError(`Signup failed: ${err.response.data.message || 'Please try again.'}`);
+      } else {
+        setError('Signup failed. Please try again.');
+      }
+      console.error('Signup error:', err.response ? err.response.data : err);
     }
   };
 
@@ -92,7 +100,7 @@ const Signup = () => {
             <div>
               <label className="font-medium uppercase">Language Preference</label>
               <select
-                value={language}
+                value={language_preference}
                 onChange={(e) => setLanguage(e.target.value)}
                 className="w-full px-3 py-2 mt-2 text-gray-500 bg-transparent border rounded-lg shadow-sm outline-none border-custom-signup-border focus:border-custom-green focus:ring-2 focus:ring-custom-green focus:ring-opacity-50 focus:outline-none"
               >
