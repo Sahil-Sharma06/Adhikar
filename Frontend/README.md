@@ -1,7 +1,9 @@
 ## Task
 
 - HomePage
-- 
+- Login (Sahil)
+- Signup (Sahil)
+- Analyzer
 
 ## Completed
 
