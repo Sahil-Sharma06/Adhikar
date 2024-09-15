@@ -1,7 +1,7 @@
 ## Task
 
 - HomePage
-- Analyzer
+
 
 ## Completed
 
@@ -9,3 +9,4 @@
 - Add Routing
 - - Login (Sahil)
 - Signup (Sahil)
+- - Analyzer(Sahil)
