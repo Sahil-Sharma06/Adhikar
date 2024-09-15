@@ -10,5 +10,4 @@ class User(Base):
     name = Column(String, index=True)
     email = Column(String, unique=True, index=True)
     password = Column(String)  # Hashed password
-    language_preference = Column(String, default="English")  # Default to English
-
+    language_preference = Column(String, default="English")

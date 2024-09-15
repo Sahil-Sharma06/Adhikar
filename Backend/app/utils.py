@@ -1,10 +1,4 @@
 import bcrypt
-import os
-from jose import JWTError, jwt
-from datetime import datetime, timedelta
-
-# Secret key for encoding JWT (keep this secret)
-
 
 def hash_password(password: str) -> str:
     # Hash the password using bcrypt
