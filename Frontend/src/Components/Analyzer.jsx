@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import bgImage from '../assets/BG.png'; // Import your background image
 
 const Analyzer = () => {
   const [file, setFile] = useState(null);
@@ -18,13 +19,19 @@ const Analyzer = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen text-white bg-gray-900">
-      <div className="w-full max-w-lg p-8 space-y-6 bg-gray-800 rounded-lg shadow-lg">
+    <div className="flex items-center justify-center min-h-screen  text-white bg-gray-900"
+    style={{
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+    }}>
+      <div className="w-full max-w-lg p-8 space-y-6 bg-custom-black rounded-lg shadow-lg">
         <h1 className="mb-6 text-3xl font-bold text-center">Upload or Provide Details</h1>
 
         {/* File Upload Section */}
         <div className="flex flex-col items-center space-y-4">
-          <label htmlFor="file-upload" className="w-full px-4 py-2 text-center bg-gray-700 border border-gray-600 rounded-lg cursor-pointer hover:bg-gray-600">
+          <label htmlFor="file-upload" className="w-full px-4 py-2 text-center text-black bg-gray-400 border border-custom-signup-border rounded-lg cursor-pointer hover:bg-gray-600">
             <input
               id="file-upload"
               type="file"
@@ -44,7 +51,7 @@ const Analyzer = () => {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 mt-1 bg-gray-700 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2 mt-1 bg-black border text-gray-500 border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-custom-green"
               placeholder="Enter document title"
             />
           </div>
@@ -54,18 +61,16 @@ const Analyzer = () => {
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-3 py-2 mt-1 bg-gray-700 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2 mt-1 bg-black text-gray-500 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-custom-green"
               placeholder="Enter document description"
               rows="4"
             />
           </div>
         </div>
-
-        {/* Analyze Button */}
         <div className="text-center">
           <button
             onClick={handleAnalyze}
-            className="w-full py-3 font-bold bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700"
+            className="w-full py-3 font-bold bg-gray-400 rounded-lg hover:bg-gray-600 text-black active:bg-indigo-700"
           >
             Analyze
           </button>
