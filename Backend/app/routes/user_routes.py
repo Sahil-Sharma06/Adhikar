@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.crud import get_users, create_user, authenticate_user
 from app.auth import create_access_token
 from app.database import get_db
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 router = APIRouter()
 
@@ -13,6 +13,7 @@ class UserCreateRequest(BaseModel):
     email: str
     password: str
     language_preference: str = "English"
+    type: str="Client"
 
 
 @router.get("/users/")
