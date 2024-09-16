@@ -1,5 +1,6 @@
 import React from 'react'
 const Homepage = () => {
+
   return (
     <>
 <div class="bg-black pb-6 sm:pb-8 lg:pb-12">
@@ -79,6 +80,22 @@ const Homepage = () => {
 
   </div>
 </div>
+
+<section class=" w-full h-screen re flex justify-center items-center">
+        
+          <div class="w-full h-30  flex justify-center items-center text-center">
+                 <div class="text-white cv cursor-pointer">
+                        ADHIKAR
+                 </div>
+          </div>
+              
+</section>
+<div class=" xx d bg-black">
+
+</div>
+<div class=" xx d">
+
+    </div>
 <section class="bg-black x">
   <div class="mx-auto mb-32 grid max-w-7xl items-center  font-tasa-orbiter-display  r text-lg md:mb-64 md:grid-cols-2 md:bg-grid-1 md:bg-[size:66%] md:bg-[position:25%_150%] md:bg-no-repeat">
     <div class="relative z-10 mt-12 bg-illustration-3 bg-contain bg-no-repeat pt-[19.5rem] md:mt-0 md:bg-none md:bg-center md:pt-0">
@@ -104,7 +121,7 @@ const Homepage = () => {
                   </div>
                   </div>
                   </section>
-
+                 
 {/* --------------------------------------------------------------------------------------------------------------------------------- */}
 <footer className="pt-10 kk bg-black">
                 <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
@@ -114,6 +131,7 @@ const Homepage = () => {
                         <a href='' className='flex gap-3'>
                         <img class="w-10" src="./public/piller-r.png" alt="logo" />
                             <h2 className="text-5xl profile text-white">ADHIKAR</h2> 
+                        <img class="w-10" src="./public/piller-r.png" alt="logo" />
                         </a>
                     </div>
                             <p className="max-w-2xl text-center text-white">

@@ -1,1 +1,5 @@
 .env
+Model/model
+Model/trained_legal_model
+test.ipynb
+WebScraper/venv
