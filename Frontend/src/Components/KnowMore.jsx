@@ -40,6 +40,7 @@ const KnowMore = () => {
   };
 
   return (
+    
     <main
       className="relative flex items-center w-screen h-lvh justify-evenly bg-custom-black"
       style={{
@@ -68,6 +69,7 @@ const KnowMore = () => {
               className={`bg-black text-gray-400 flex-grow p-2 border-4 rounded focus:border-custom-green focus:ring-2 focus:ring-custom-green focus:ring-opacity-50 focus:outline-none caret-custom-green broad-caret ${
                 isFocused ? 'border-custom-green' : 'border-custom-signup-border'
               }`}
+              style={{ overflow: 'auto', textOverflow: 'ellipsis' }}
               placeholder="Enter case name"
               value={caseName} // Bind input value to caseName state
               onChange={(e) => setCaseName(e.target.value)} // Update caseName state on input change

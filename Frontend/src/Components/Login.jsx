@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { imp } from '../../data/data.js';
 import leftImage from '../assets/ascii-column-left.png';
 import rightImage from '../assets/ascii-column-right.png';
-import { redirect } from "react-router-dom";
-
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Hook to programmatically navigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(''); 
 
     try {
       const response = await axios.post(imp[0].domain + '/auth/login', {
@@ -24,7 +24,11 @@ const Login = () => {
           'Content-Type': 'application/json'
         }
       });
-      redirect("/dashboard");
+
+      // Check if the response status is 200 (successful login)
+      if (response.status === 200) {
+        navigate('/dashboard'); 
+      }
     } catch (err) {
       if (err.response && err.response.data) {
         setError(`Login failed: ${err.response.data.message || 'Please try again.'}`);
@@ -37,10 +41,10 @@ const Login = () => {
 
   return (
     <main className="relative flex items-center w-full h-screen justify-evenly bg-custom-black">
-      <div className="fixed top-0 left-0 w-1/3 h-full" style={{marginTop:'2%', marginLeft: '25%' }}>
+      <div className="fixed top-0 left-0 w-1/3 h-full" style={{ marginTop: '2%', marginLeft: '25%' }}>
         <img src={leftImage} alt="Left" className="object-cover " />
       </div>
-      
+
       <div className="relative flex-1 max-w-md mx-auto space-y-6 text-white border-4 border-custom-signup-border bg-custom-black sm:max-w-md" style={{ fontFamily: '"Source Code Pro", monospace', fontWeight: 500 }}>
         <div className="p-4 py-2 bg-custom-black sm:rounded-lg">
           <div className="mb-6 border-b">
@@ -88,7 +92,7 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="fixed top-0 right-0 w-1/3 h-full" style={{marginTop:'2%',  marginLeft: '5%' }}>
+      <div className="fixed top-0 right-0 w-1/3 h-full" style={{ marginTop: '2%', marginLeft: '5%' }}>
         <img src={rightImage} alt="Right" className="object-cover " />
       </div>
     </main>
