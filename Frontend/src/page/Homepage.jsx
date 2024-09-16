@@ -63,12 +63,12 @@ const Homepage = () => {
     </div>
      <div class="container">
         <div class="header2 text-white ">
-            <h2 class="mt-20 mx-10">Colosseum powers Solana hackathons</h2>
+            <h2 class="mt-20 mx-10">Adhikar powers Judicial Processes</h2>
         
         <div class="stats">
-            <ul><li><span class="number text-white">70,000+</span>builders</li>
-                <li><span class="number text-white">5,000+</span>products launched</li>
-                <li><span class="number text-white">$650M</span>raised by winners</li>
+            <ul><li><span class="number text-white">7,000+</span>Documents Processed</li>
+                <li><span class="number text-white">500</span>Case filings analysed</li>
+                <li><span class="number text-white">5+</span>Languages Supported</li>
             </ul>
         </div>
    </div>
@@ -101,9 +101,7 @@ const Homepage = () => {
     <div class="relative z-10 mt-12 bg-illustration-3 bg-contain bg-no-repeat pt-[19.5rem] md:mt-0 md:bg-none md:bg-center md:pt-0">
       <div class="flex flex-col gap-10 bg-grid-1 bg-[size:40rem] bg-[position:50%_0rem] bg-no-repeat md:bg-none">
         <h2 class="text-5xl font-bold uppercase leading-[3.5rem] text-white md:text-8xl md:leading-[6.5rem]" data-svelte-h="svelte-fdwwm8">Join ADHIKAR's Community</h2> 
-        <p class="max-w-xl text-base font-medium text-white md:text-lg" data-svelte-h="svelte-t03cuu">Colosseum runs 2-3 online hackathons per year, each followed by an accelerator cohort.
-          Sign up for a Colosseum account, create a builder profile, search to find cofounders, and
-          share product ideas in the forum before the next hackathon.</p> 
+        <p class="max-w-xl text-base font-medium text-white md:text-lg" data-svelte-h="svelte-t03cuu">The AI-Driven Research Engine provides customized legal insights, predictive analytics, and multilingual support. It enhances judicial processes by delivering fast, reliable, and transparent results for resolving commercial disputes.</p> 
           <div class="flex items-center gap-7">
           <div>
               <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 

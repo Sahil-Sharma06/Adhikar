@@ -31,7 +31,7 @@ const Dashboard = () => {
         <div class="flex flex-col items-center w-[20vw] h-[65vh] border shadow-lg rounded-lg overflow-hidden da-1">
             <img src="./src/assets/t2.jpg" alt="Card Image" class="w-full h-[25vh] object-cover mb-4"/>
                <div class="p-4 flex-1">
-               <h2 class="text-xl font-semibold mb-2 text-white">Card Title</h2>
+               <h2 class="text-xl font-semibold mb-2 text-white">SETTLE</h2>
       <p class="text-white mb-4 ty">Card description text goes here. This text provides more details about the card content.</p>
       <p class="text-white mb-4 ty">Card description text goes here. This text provides more details about the card content.</p>
       <div class="w-full  flex justify-center ">
