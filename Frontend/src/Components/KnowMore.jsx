@@ -3,9 +3,43 @@ import leftImage from '../assets/ascii-column-left.png';
 import rightImage from '../assets/ascii-column-right.png';
 import bgImage from '../assets/BG.png'; // Import your background image
 import '../index.css';
+import Markdown from 'react-markdown'
 
 const KnowMore = () => {
   const [isFocused, setIsFocused] = useState(false); // Track input focus state
+  const [caseName, setCaseName] = useState(''); // Store case name input
+  const [act, setAct] = useState(''); // Store Act data
+  const [details, setDetails] = useState(''); // Store Details data
+  const [isLoading, setIsLoading] = useState(false); // Track loading state
+  const [errorMessage, setErrorMessage] = useState(''); // Store any error message
+
+  const handleKnowClick = async () => {
+    setIsLoading(true);
+    setErrorMessage(''); // Clear any previous errors
+    try {
+      const response = await fetch('http://localhost:8000/features/knowlaw', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: caseName, // Send the case name input as part of the POST request body
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setAct(data.Law); // Assuming the response has 'act' field
+        setDetails(data.Explanation); // Assuming the response has 'details' field
+      } else {
+        setErrorMessage('Failed to fetch data. Please try again.');
+      }
+    } catch (error) {
+      setErrorMessage('An error occurred. Please check your connection.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <main
@@ -24,10 +58,9 @@ const KnowMore = () => {
         } mb-20`}
         style={{ marginTop: '10%' }} // Ensure top margin to push down the container
       >
-        {/* Title - Positioned at the Top */}
+        {/* Title */}
         <h1 className="mb-6 text-3xl text-center text-white border-b-2 w-svh">Know About the Case</h1>
 
-        {/* Add margin to move the content down */}
         <div className="flex flex-col items-center justify-center w-full mt-8 space-y-6">
           {/* Case Input */}
           <div className="flex items-center w-full mb-4">
@@ -38,15 +71,26 @@ const KnowMore = () => {
                 isFocused ? 'border-custom-green' : 'border-custom-signup-border'
               }`}
               placeholder="Enter case name"
+              value={caseName} // Bind input value to caseName state
+              onChange={(e) => setCaseName(e.target.value)} // Update caseName state on input change
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
             />
           </div>
 
           {/* Know Button */}
-          <button className="w-[300px] p-2 text-black bg-gray-300 rounded mb-12 ml-10">Know</button>
+          <button
+            onClick={handleKnowClick}
+            className="w-[300px] p-2 text-black bg-gray-300 rounded mb-12 ml-10"
+            disabled={isLoading} // Disable button while loading
+          >
+            {isLoading ? 'Loading...' : 'Know'}
+          </button>
 
-          {/* Act and Details Container */}
+          {/* Error message */}
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+
+          {/* Act and Details always visible */}
           <div className="flex flex-col w-full space-y-4 text-white">
             {/* Act Field */}
             <div className="flex items-start w-full">
@@ -55,7 +99,7 @@ const KnowMore = () => {
                 className="flex-grow p-2 ml-4 border-2 rounded border-custom-green bg-custom-black"
                 style={{ overflow: 'auto', textOverflow: 'ellipsis' }}
               >
-                Indian Penal Code (IPC)
+                {act || 'No Act available'}
               </p>
             </div>
 
@@ -66,7 +110,9 @@ const KnowMore = () => {
                 className="flex-grow p-2 border-2 rounded h-4/5 border-custom-green bg-custom-black"
                 style={{ overflow: 'auto', textOverflow: 'ellipsis' }}
               >
-                The Indian Penal Code (IPC) is the official criminal code of India. It is a comprehensive code intended to cover all substantive aspects of criminal law. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolore a dolores, nesciunt, ab eius vel incidunt dolor voluptatum non necessitatibus velit possimus? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis quam voluptatem perspiciatis velit id incidunt excepturi? Aut, distinctio eos numquam vero incidunt velit reprehenderit nesciunt eaque atque autem, fugiat nobis ducimus voluptatibus beatae tempora?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium ex necessitatibus possimus? Quaerat tempora laboriosam vitae quisquam, velit ex culpa, quae perferendis atque qui accusamus, esse saepe aperiam excepturi. Sequi quam incidunt pariatur vitae commodi, tenetur esse temporibus, velit aperiam eum fuga voluptatibus dolore ullam tempora itaque laboriosam? Labore repellendus porro aspernatur vero reiciendis accusantium hic, fuga quidem eveniet, et illo quae architecto nobis reprehenderit culpa non!
+                <Markdown>
+                {details || 'No details available'}
+                </Markdown>
               </p>
             </div>
           </div>

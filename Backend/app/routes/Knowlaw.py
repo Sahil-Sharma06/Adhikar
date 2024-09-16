@@ -69,14 +69,14 @@ async def know_law(detail: LawDetail, db: AsyncSession = Depends(get_db)):
 
         # Call the local API (example: http://localhost:8080/question/{text_input})
         async with httpx.AsyncClient() as client:
-            response = await client.get(f"http://localhost:8080/question/{text_input}")
+            response = await client.get(f"http://localhost:8080/model1/{text_input}")
 
         # Check if the local API request was successful
         if response.status_code == 200:
             # Parse the response from the local API
             external_response = response.json()
             law_text = external_response.get("message")
-
+            print(law_text)
             if not law_text:
                 raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid response from local API")
 
@@ -90,7 +90,7 @@ async def know_law(detail: LawDetail, db: AsyncSession = Depends(get_db)):
             law_explanation = await explain_law_from_text(law_text, gem_api_key)
 
             if law_explanation:
-                # Return the law explanation
+                print(law_explanation)
                 return {"Law": law_text, "Explanation": law_explanation}
             else:
                 return {"message": "Could not generate explanation from Gemini API"}

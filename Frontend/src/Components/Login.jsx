@@ -24,7 +24,6 @@ const Login = () => {
           'Content-Type': 'application/json'
         }
       });
-      console.log('Login successful:', response.data);
       redirect("/dashboard");
     } catch (err) {
       if (err.response && err.response.data) {
