@@ -1,8 +1,3 @@
-## Task
-
-- HomePage
-
-
 ## Completed
 
 - Add Tailwind
@@ -12,3 +7,5 @@
 - Analyzer(Sahil)
 - Chatbox
 - Settings
+- Homepage
+  
