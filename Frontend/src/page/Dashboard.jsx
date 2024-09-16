@@ -32,8 +32,9 @@ const Dashboard = () => {
             <img src="./src/assets/t2.jpg" alt="Card Image" class="w-full h-[25vh] object-cover mb-4"/>
                <div class="p-4 flex-1">
                <h2 class="text-xl font-semibold mb-2 text-white">SETTLE</h2>
-      <p class="text-white mb-4 ty">Card description text goes here. This text provides more details about the card content.</p>
-      <p class="text-white mb-4 ty">Card description text goes here. This text provides more details about the card content.</p>
+      <p class="text-white mb-4 ty"><b>Virtual Resolution:</b> Provides users with potential resolutions, enabling them to settle disputes outside of court.
+      </p>
+      <p class="text-white mb-4 ty"><b>Outcome Prediction:</b> Offers insights into likely case results, helping users make informed decisions.</p>
       <div class="w-full  flex justify-center ">
       <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
               href="https://arena.colosseum.org/signup">Settle
@@ -44,9 +45,9 @@ const Dashboard = () => {
         <div class="flex flex-col items-center w-[20vw] h-[65vh] border shadow-lg rounded-lg overflow-hidden da-2">
             <img src="./src/assets/t3.jpg" alt="Card Image" class="w-full h-[25vh] object-cover mb-4"/>
                <div class="p-4 flex-1">
-               <h2 class="text-xl font-semibold mb-2 text-white">Card Title</h2>
-      <p class="text-white mb-4 ty">Card description text goes here. This text provides more details about the card content.</p>
-      <p class="text-white mb-4 ty">Card description text goes here. This text provides more details about the card content.</p>
+               <h2 class="text-xl font-semibold mb-2 text-white">Know Your Case</h2>
+      <p class="text-white mb-4 ty"><b>IP Section Expertise:</b> Analyzes various intellectual property sections and rules to classify the case accurately.</p>
+      <p class="text-white mb-4 ty"><b>Case Understanding:</b> Helps users understand the nature of their case and the applicable legal sections.</p>
       <div class="w-full  flex justify-center ">
       <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
               href="https://arena.colosseum.org/signup">Know
@@ -57,9 +58,9 @@ const Dashboard = () => {
         <div class="flex flex-col items-center w-[20vw] h-[65vh] border shadow-lg rounded-lg overflow-hidden da-3">
             <img src="./src/assets/t1.jpg" alt="Card Image" class="w-full h-[25vh] object-cover mb-4"/>
                <div class="p-4 flex-1">
-               <h2 class="text-xl font-semibold mb-2 text-white">Card Title</h2>
-      <p class="text-white mb-4 ty">Card description text goes here. This text provides more details about the card content.</p>
-      <p class="text-white mb-4 ty">Card description text goes here. This text provides more details about the card content.</p>
+               <h2 class="text-xl font-semibold mb-2 text-white">Analyze</h2>
+      <p class="text-white mb-4 ty"><b>Judicial Assistance:</b> Supports judges by summarizing case details and relevant information to save time.</p>
+      <p class="text-white mb-4 ty"><b>Efficiency Boost:</b> Enhances case management and decision-making through detailed document analysis.</p>
       <div class="w-full  flex justify-center ">
       <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
               href="https://arena.colosseum.org/signup">Analyse
