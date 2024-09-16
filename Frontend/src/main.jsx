@@ -14,6 +14,7 @@ import Signup from './Components/Signup.jsx';
 import Analyzer from './Components/Analyzer.jsx';
 import Chatbox from './Components/Chatbox.jsx';
 import Settings from './Components/Settings.jsx';
+import KnowMore from './Components/KnowMore.jsx';
 import Dashboard from './page/Dashboard.jsx';
 
 const router= createBrowserRouter(
@@ -25,11 +26,12 @@ const router= createBrowserRouter(
       <Route path='/analyze' element={<Analyzer/>}/>
       <Route path='/chat' element={<Chatbox/>}/>
       <Route path='/setting' element={<Settings/>}/>
+      <Route path='/know' element={<KnowMore/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
     </Route>
   )
 )
 
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}/>,
+  <RouterProvider router={router}/>
 )
