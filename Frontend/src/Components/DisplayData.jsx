@@ -60,30 +60,6 @@ const KnowMore = () => {
         <h1 className="mb-6 text-3xl text-center text-white border-b-2 w-lvh">Analysis of the Case</h1>
 
         <div className="flex flex-col items-center justify-center w-full mt-8 space-y-6">
-          {/* Case Input */}
-          <div className="flex items-center w-full mb-4">
-            <h2 className="mr-2 text-white">Case:</h2>
-            <input
-              type="text"
-              className={`bg-black text-gray-400 flex-grow p-2 border-4 rounded focus:border-custom-green focus:ring-2 focus:ring-custom-green focus:ring-opacity-50 focus:outline-none caret-custom-green broad-caret ${
-                isFocused ? 'border-custom-green' : 'border-custom-signup-border'
-              }`}
-              placeholder="Enter case name"
-              value={caseName} // Bind input value to caseName state
-              onChange={(e) => setCaseName(e.target.value)} // Update caseName state on input change
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-            />
-          </div>
-
-          {/* Know Button */}
-          <button
-            onClick={handleKnowClick}
-            className="w-[300px] p-2 text-black bg-gray-300 rounded mb-12 ml-10"
-            disabled={isLoading} // Disable button while loading
-          >
-            {isLoading ? 'Loading...' : 'Know'}
-          </button>
 
           {/* Error message */}
           {errorMessage && <p className="text-red-500">{errorMessage}</p>}

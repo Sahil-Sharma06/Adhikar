@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import bgImage from '../assets/BG.png'; // Import your background image
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import bgImage from '../assets/BG.png';
 
 const Analyzer = () => {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -16,16 +18,19 @@ const Analyzer = () => {
     }
     console.log('Title:', title);
     console.log('Description:', description);
+
+    // Redirect to /display
+    navigate('/display');
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen  text-white bg-gray-900"
-    style={{
-      backgroundImage: `url(${bgImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-    }}>
+    <div className="flex items-center justify-center min-h-screen text-white bg-gray-900"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}>
       <div className="w-full max-w-lg p-8 space-y-6 bg-custom-black rounded-lg shadow-lg">
         <h1 className="mb-6 text-3xl font-bold text-center">Upload or Provide Details</h1>
 
