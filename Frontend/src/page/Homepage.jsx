@@ -19,7 +19,7 @@ const Homepage = () => {
         <a href="#" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-green-400 active:text-green-300">About</a>
       </nav>
 
-      <a href="#" class="hidden rounded-lg bg-black px-8 py-3 text-center text-sm font-semibold text-green-300 outline-none ring-indigo-300 transition duration-100 hover:outline-green-200 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block">Get Started</a>
+      <a href="/register" class="hidden rounded-lg bg-black px-8 py-3 text-center text-sm font-semibold text-green-300 outline-none ring-indigo-300 transition duration-100 hover:outline-green-200 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block">Get Started</a>
 
       <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-black px-2.5 py-2 text-sm font-semibold text-green-200 ring-indigo-300  focus-visible:ring active:text-gray-700 md:text-base lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
@@ -39,11 +39,11 @@ const Homepage = () => {
           <div class="mb-2 flex items-center justify-center gap-4 md:mb-16">
             <div>
               <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
-              href="https://arena.colosseum.org/signup">Sign Up</a>
+              href="/register">Sign Up</a>
               </div> 
               <div>
                 <a class=" bg-white rounded-[4px] font-nb-architekt uppercase bg-gray-1 text-gray-10 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2 border focus-within:outline-white hover:contrast-75 focus-within:hover:contrast-75 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
-                href="https://arena.colosseum.org/signin">Sign In</a>
+                href="/login">Sign In</a>
                 </div>
                 </div>
           </div>
@@ -105,11 +105,11 @@ const Homepage = () => {
           <div class="flex items-center gap-7">
           <div>
               <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
-              href="https://arena.colosseum.org/signup">Sign Up</a>
+              href="/register">Sign Up</a>
               </div> 
               <div>
                 <a class=" bg-white rounded-[4px] font-nb-architekt uppercase bg-gray-1 text-gray-10 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2 border focus-within:outline-white hover:contrast-75 focus-within:hover:contrast-75 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
-                href="https://arena.colosseum.org/signin">Sign In</a>
+                href="/login">Sign In</a>
                 </div>
                 </div>
                 </div>
