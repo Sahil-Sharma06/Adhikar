@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from transformers import T5Tokenizer, T5ForConditionalGeneration, AdamW, AutoTokenizer, AutoModelForCausalLM
 import torch
 
@@ -37,6 +38,13 @@ print(f"Question: {example_question}\nAnswer: {generated_answer}")
 # Initialize the FastAPI app
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods
+    allow_headers=["*"],  # Allows all headers
+)
 # Define a basic GET route
 @app.get("/")
 async def root(): 
@@ -50,29 +58,30 @@ async def get_ans(question: str):
 
 
 
-# code for model 2
-##save_directory = "trained_legal_model"
-##model = AutoModelForCausalLM.from_pretrained(save_directory)
-##tokenizer = AutoTokenizer.from_pretrained(save_directory)
-##
-##
-##
-##
-##
-##@app.get("/model2/{question1}")
-##async def get_ans(question1: str):
-##    input_text = "{question1}"
-##    # Tokenize the input text
-##    inputs = tokenizer(input_text, return_tensors='pt')
-##    output_sequences = model.generate(
-##    inputs['input_ids'],  # Tokenized input IDs
-##    max_new_tokens=1000,   # Limit the number of newly generated tokens
-##    num_return_sequences=1,  # Number of sequences to return
-##    no_repeat_ngram_size=2,  # Avoid repeating n-grams
-##    do_sample=True,       # Sample the output instead of greedy decoding
-##    top_k=50,             # Consider top 50 tokens
-##    top_p=0.95,           # Use nucleus sampling)
-##    )
-##    generated_text = tokenizer.decode(output_sequences[0], skip_special_tokens=True)
-##    return {"message": f"{generated_text}"}
-##
+#code for model 2
+save_directory = "model2"
+model = AutoModelForCausalLM.from_pretrained(save_directory)
+tokenizer = AutoTokenizer.from_pretrained(save_directory)
+
+
+
+
+
+@app.get("/model2/{question1}")
+async def get_ans(question1: str):
+    input_text =question1
+    print(input_text)
+    # Tokenize the input text
+    inputs = tokenizer(input_text, return_tensors='pt')
+    output_sequences = model.generate(
+    inputs['input_ids'],  # Tokenized input IDs
+    max_new_tokens=1000,   # Limit the number of newly generated tokens
+    num_return_sequences=1,  # Number of sequences to return
+    no_repeat_ngram_size=2,  # Avoid repeating n-grams
+    do_sample=True,       # Sample the output instead of greedy decoding
+    top_k=50,             # Consider top 50 tokens
+    top_p=0.95,           # Use nucleus sampling)
+    )
+    generated_text = tokenizer.decode(output_sequences[0], skip_special_tokens=True)
+    print(generated_text)
+    return {"message": f"{generated_text}"}
