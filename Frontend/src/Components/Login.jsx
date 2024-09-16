@@ -4,6 +4,8 @@ import axios from 'axios';
 import { imp } from '../../data/data.js';
 import leftImage from '../assets/ascii-column-left.png';
 import rightImage from '../assets/ascii-column-right.png';
+import { redirect } from "react-router-dom";
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,6 +25,7 @@ const Login = () => {
         }
       });
       console.log('Login successful:', response.data);
+      redirect("/dashboard");
     } catch (err) {
       if (err.response && err.response.data) {
         setError(`Login failed: ${err.response.data.message || 'Please try again.'}`);
