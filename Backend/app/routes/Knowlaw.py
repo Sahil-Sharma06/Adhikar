@@ -1,72 +1,84 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.crud import get_users, create_user, authenticate_user
-from app.auth import create_access_token
 from app.database import get_db
-import os
 from pydantic import BaseModel
+import os
 import httpx
+import asyncio
 
 router = APIRouter()
 
 class LawDetail(BaseModel):
     text: str
 
-# Function to fetch details from Gemini API
-async def fetch_law_details_from_gemini(law_name: str, api_key: str) -> dict:
+# Function to generate law explanation from the Gemini API
+async def explain_law_from_text(text_chunk: str, api_key: str, retry_count: int = 3):
     """
-    Fetch details about a specific law from the Gemini API.
-
+    Explains the law based on the provided text using the Gemini API.
     Args:
-        law_name (str): The name of the law to fetch details for.
-        api_key (str): The Gemini API key.
-
+        text_chunk (str): The text chunk for explaining the law.
+        api_key (str): Gemini API key for authentication.
+        retry_count (int): Number of times to retry on failure.
     Returns:
-        dict: The response from the Gemini API containing law details.
+        str: A law explanation if successful, None otherwise.
     """
-    url = "https://gemini.api/endpoint"  # Replace with actual Gemini API endpoint
+    prompt = f"""
+    Your task is to read and understand the following legal text and provide a clear, concise explanation of the law described in the text. The explanation should focus on the key concepts and legal principles covered.
 
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
-    }
+    Text: "{text_chunk}"
 
-    payload = {
-        "query": law_name,
-        "context": "Legal Information",
-        "fields": ["description", "applications", "precedents"]  # Example fields
-    }
+    Please provide the explanation in a concise and easy-to-understand format.
+    """
+    
+    api_url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}'
+    headers = {'Content-Type': 'application/json'}
+    body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}]}
 
-    try:
-        # Make the request to the Gemini API using httpx asynchronously
-        async with httpx.AsyncClient() as client:
-            response = await client.post(url, json=payload, headers=headers)
+    for attempt in range(retry_count):
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.post(api_url, headers=headers, json=body)
+                response.raise_for_status()
+                data = response.json()
 
-        # Check if the request was successful
-        if response.status_code == 200:
-            return response.json()  # Return the response as a dictionary
-        else:
-            return {"error": f"Failed to fetch law details. Status code: {response.status_code}"}
-    except Exception as e:
-        return {"error": f"An exception occurred: {str(e)}"}
+                # Parse the content for the explanation
+                content = data.get('candidates', [{}])[0].get('content', {}).get('parts', [{}])[0].get('text', '')
+                if content:
+                    return content.strip()
+                else:
+                    return None
+
+        except httpx.HTTPStatusError as e:
+            print(f"HTTP error occurred: {e}")
+            await asyncio.sleep(2)
+        except Exception as e:
+            print(f"An exception occurred: {str(e)}")
+            await asyncio.sleep(2)
+
+    return None
+
 
 # POST API for /knowlaw
 @router.post("/knowlaw")
 async def know_law(detail: LawDetail, db: AsyncSession = Depends(get_db)):
     """
-    Endpoint to process law details and fetch additional information from an external API.
+    Endpoint to process law details and fetch an explanation of the law from the Gemini API.
     """
     try:
         text_input = detail.text
-        
-        # Call the external API (local service running on port 8080)
+
+        # Call the local API (example: http://localhost:8080/question/{text_input})
         async with httpx.AsyncClient() as client:
             response = await client.get(f"http://localhost:8080/question/{text_input}")
-        
-        # Check if the request to the external API was successful
+
+        # Check if the local API request was successful
         if response.status_code == 200:
-            # Parse the response from the external API
+            # Parse the response from the local API
             external_response = response.json()
+            law_text = external_response.get("message")
+
+            if not law_text:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid response from local API")
 
             # Fetch the Gemini API key from environment variables
             gem_api_key = os.getenv("GEM")
@@ -74,14 +86,17 @@ async def know_law(detail: LawDetail, db: AsyncSession = Depends(get_db)):
             if not gem_api_key:
                 raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Gemini API key not set")
 
-            # Fetch law details from the Gemini API
-            gem_data = await fetch_law_details_from_gemini(external_response["message"], gem_api_key)
+            # Call the Gemini API to explain the law based on the text
+            law_explanation = await explain_law_from_text(law_text, gem_api_key)
 
-            # Return the external response and the details from the Gemini API
-            return {"message": external_response["message"], "Details": gem_data}
+            if law_explanation:
+                # Return the law explanation
+                return {"Law": law_text, "Explanation": law_explanation}
+            else:
+                return {"message": "Could not generate explanation from Gemini API"}
 
         else:
-            raise HTTPException(status_code=response.status_code, detail="Error calling external API")
+            raise HTTPException(status_code=response.status_code, detail="Error calling local API")
 
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"An error occurred: {str(e)}")
