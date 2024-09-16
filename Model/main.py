@@ -45,4 +45,4 @@ async def root():
 @app.get("/question/{question}")
 async def get_ans(question: str):
     generated_answer = generate_answer(question, fine_tuned_model, fine_tuned_tokenizer, device) 
-    return {"message": f"Answer: {generated_answer}"}
+    return {"message": f"{generated_answer}"}

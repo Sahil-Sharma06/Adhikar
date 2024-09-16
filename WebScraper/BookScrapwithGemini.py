@@ -3,34 +3,50 @@ import time
 import requests
 import pdfplumber
 
-def generate_qna_from_text(text_chunk, api_key, retry_count=3):
+async def explain_law_from_text(text_chunk: str, api_key: str, retry_count: int = 3):
+    """
+    Explains the law based on the provided text using Gemini API.
+
+    Args:
+        text_chunk (str): The text chunk for explaining the law.
+        api_key (str): Gemini API key for authentication.
+        retry_count (int): Number of times to retry on failure.
+
+    Returns:
+        str: A law explanation if successful, None otherwise.
+    """
     prompt = f"""
-    Your task is to read and understand the following text from a book and generate a relevant question and a clear, concise answer based on the content. The question should focus on testing the understanding of key concepts or information from the text.
+    Your task is to read and understand the following legal text and provide a clear, concise explanation of the law described in the text. The explanation should focus on the key concepts and legal principles covered.
 
     Text: "{text_chunk}"
 
-    Please provide the question and answer in the following format:
-    Question: [Generated question based on the text]
-    Answer: [Clear and concise answer based on the text]
+    Please provide the explanation in a concise and easy-to-understand format.
     """
+    
     api_url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}'
     headers = {'Content-Type': 'application/json'}
     body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}]}
 
     for attempt in range(retry_count):
         try:
-            response = requests.post(api_url, headers=headers, json=body)
-            response.raise_for_status()
-            data = response.json()
-            content = data.get('candidates', [{}])[0].get('content', {}).get('parts', [{}])[0].get('text', '')
-            if "Question:" in content and "Answer:" in content:
-                question, answer = content.split("Answer:")
-                return question.replace("Question:", "").strip(), answer.strip()
-            else:
-                return None, None
+            async with httpx.AsyncClient() as client:
+                response = await client.post(api_url, headers=headers, json=body)
+                response.raise_for_status()
+                data = response.json()
+
+                content = data.get('candidates', [{}])[0].get('content', {}).get('parts', [{}])[0].get('text', '')
+                if content:
+                    return content.strip()
+                else:
+                    return None
+
+        except httpx.HTTPStatusError as e:
+            print(f"HTTP error occurred: {e}")
+            await asyncio.sleep(2)
         except Exception as e:
-            time.sleep(2)
-    return None, None
+            print(f"An exception occurred: {str(e)}")
+            await asyncio.sleep(2)
+    return None
 
 def generate_context_for_answer(answer, api_key, retry_count=3):
     prompt = f'Your task is to generate a context based on the following answer to help train a model.\n\nAnswer: "{answer}"\n\nPlease provide a relevant context for the given answer.'
