@@ -7,9 +7,9 @@ const Homepage = () => {
   <div class=" max-w-screen-3xl bg-black">
     <header class="mb-4 flex items-center justify-between py-4 md:py-8 bg-black  w-full">
      
-      <a href="/" class="inline-flex items-center gap-2.5 text-2xl font-bold text-white md:text-3xl font-montserrat" aria-label="logo">
+      <a href="/" class="inline-flex items-center gap-2.5 text-2xl font-bold text-white md:text-3xl font-montserrat fd" aria-label="logo">
       <img class="w-8" src="./public/piller-r.png" alt="logo" />
-       Adhikar
+       ADHIKAR
       </a>
      
       <nav class="hidden gap-12 lg:flex">
@@ -81,7 +81,7 @@ const Homepage = () => {
   </div>
 </div>
 
-<section class=" w-full h-screen re flex justify-center items-center">
+{/* <section class=" w-full h-screen re flex justify-center items-center">
         
           <div class="w-full h-30  flex justify-center items-center text-center">
                  <div class="text-white cv cursor-pointer">
@@ -89,7 +89,7 @@ const Homepage = () => {
                  </div>
           </div>
               
-</section>
+</section> */}
 <div class=" xx d bg-black">
 
 </div>
@@ -100,7 +100,7 @@ const Homepage = () => {
   <div class="mx-auto mb-32 grid max-w-7xl items-center  font-tasa-orbiter-display  r text-lg md:mb-64 md:grid-cols-2 md:bg-grid-1 md:bg-[size:66%] md:bg-[position:25%_150%] md:bg-no-repeat">
     <div class="relative z-10 mt-12 bg-illustration-3 bg-contain bg-no-repeat pt-[19.5rem] md:mt-0 md:bg-none md:bg-center md:pt-0">
       <div class="flex flex-col gap-10 bg-grid-1 bg-[size:40rem] bg-[position:50%_0rem] bg-no-repeat md:bg-none">
-        <h2 class="text-5xl font-bold uppercase leading-[3.5rem] text-white md:text-8xl md:leading-[6.5rem]" data-svelte-h="svelte-fdwwm8">Join Colosseum's Community</h2> 
+        <h2 class="text-5xl font-bold uppercase leading-[3.5rem] text-white md:text-8xl md:leading-[6.5rem]" data-svelte-h="svelte-fdwwm8">Join ADHIKAR's Community</h2> 
         <p class="max-w-xl text-base font-medium text-white md:text-lg" data-svelte-h="svelte-t03cuu">Colosseum runs 2-3 online hackathons per year, each followed by an accelerator cohort.
           Sign up for a Colosseum account, create a builder profile, search to find cofounders, and
           share product ideas in the forum before the next hackathon.</p> 
