@@ -37,7 +37,7 @@ const Dashboard = () => {
       <p class="text-white mb-4 ty"><b>Outcome Prediction:</b> Offers insights into likely case results, helping users make informed decisions.</p>
       <div class="w-full  flex justify-center ">
       <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
-              href="https://arena.colosseum.org/signup">Settle
+              href="/">Settle
         </a>  
       </div>
     </div>
@@ -50,7 +50,7 @@ const Dashboard = () => {
       <p class="text-white mb-4 ty"><b>Case Understanding:</b> Helps users understand the nature of their case and the applicable legal sections.</p>
       <div class="w-full  flex justify-center ">
       <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
-              href="https://arena.colosseum.org/signup">Know
+              href="/know">Know
         </a>  
       </div>
     </div>
@@ -63,17 +63,11 @@ const Dashboard = () => {
       <p class="text-white mb-4 ty"><b>Efficiency Boost:</b> Enhances case management and decision-making through detailed document analysis.</p>
       <div class="w-full  flex justify-center ">
       <a class=" bg-green-900 rounded-[4px] font-nb-architekt uppercase bg-green-2 text-green-1 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2  text-green-600 focus-within:outline-green-1 focus-within:brightness-150 hover:brightness-150 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
-              href="https://arena.colosseum.org/signup">Analyse
+              href="/analyze">Analyse
         </a>  
       </div>
     </div>
-  </div>
-        
-
-
-        
-        
-       
+  </div>    
       </div>
    </div>
   )
