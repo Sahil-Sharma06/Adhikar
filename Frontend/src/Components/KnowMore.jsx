@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import leftImage from '../assets/ascii-column-left.png';
-import rightImage from '../assets/ascii-column-right.png';
 import bgImage from '../assets/BG.png'; // Import your background image
 import '../index.css';
 import Markdown from 'react-markdown'
