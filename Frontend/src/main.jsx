@@ -16,6 +16,7 @@ import Chatbox from './Components/Chatbox.jsx';
 import Settings from './Components/Settings.jsx';
 import KnowMore from './Components/KnowMore.jsx';
 import Dashboard from './page/Dashboard.jsx';
+import DisplayData from './Components/DisplayData.jsx'
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router= createBrowserRouter(
       <Route path='/setting' element={<Settings/>}/>
       <Route path='/know' element={<KnowMore/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
+      <Route path='/display' element={<DisplayData/>}/>
     </Route>
   )
 )
