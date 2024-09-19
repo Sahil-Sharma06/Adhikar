@@ -109,7 +109,7 @@ const Homepage = () => {
               </div> 
               <div>
                 <a class=" bg-white rounded-[4px] font-nb-architekt uppercase bg-gray-1 text-gray-10 outline-none transition-all duration-300 ease-in-out focus-within:outline-offset-2 border focus-within:outline-white hover:contrast-75 focus-within:hover:contrast-75 px-4 py-3 text-[14px] md:px-7 md:py-4 md:text-[18px]" 
-                href="/login">Sign In</a>
+                href="/dashboard">Dashboard</a>
                 </div>
                 </div>
                 </div>
