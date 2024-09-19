@@ -75,5 +75,13 @@ Adhikar is a powerful, AI-driven legal research tool designed to help streamline
 2. Use the platform to upload legal documents, explore existing categorized data, and view predictive case outcomes.
 3. The backend API will process the data and respond with real-time insights.
 
-## Project Structure
+## Contributors
+
+- **Team Lead & Data Analyst**: [Prakashita Singh](https://github.com/prakashita)
+- **Frontend Developer**: [BJ Gridhar](https://github.com/giri69)
+- **UI/UX Designer**: [Sahil Sharma](https://github.com/Sahil-Sharma06)
+- **Backend Engineer**: [Sushil Pandey](https://github.com/sushilpandeyy)
+- **ML Model Trainer**: [Anand Kumar Sharma](https://github.com/mranandkumarsharma)
+- **ML Model Trainer**: [Sachin Kumar Yadav](https://github.com/SACHINKUMAR1728)
+
 
